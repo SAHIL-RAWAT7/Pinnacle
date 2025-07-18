@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoppa - Your Online StoreHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-indigo-600">Shoppa</a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-700 hover:text-indigo-600">Home</a>
+                <a href="#products" class="text-gray-700 hover:text-indigo-600">Products</a>
+                <a href="#deals" class="text-gray-700 hover:text-indigo-600">Deals</a>
+                <a href="#" class="text-gray-700 hover:text-indigo-600">About</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button id="search-btn" class="text-gray-600 hover:text-indigo-600">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="relative">
+                    <button id="cart-btn" class="text-gray-600 hover:text-indigo-600 relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-indigo-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </button>
+                    <div id="cart-dropdown" class="hidden absolute right-0 mt-2 w-80 bg-white rounded-md shadow-lg z-50 border border-gray-200">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">Your Cart</h3>
+                            <div id="cart-items" class="max-h-60 overflow-y-auto">
+                                <p class="text-gray-500 text-center py-4">Your cart is empty</p>
+                            </div>
+                            <div class="border-t border-gray-200 pt-3 mt-3">
+                                <div class="flex justify-between font-semibold mb-3">
+                                    <span>Total:</span>
+                                    <span id="cart-total">$0.00</span>
+                                </div>
+                                <button id="checkout-btn" class="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition">Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="md:hidden text-gray-600" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#" class="text-gray-700 hover:text-indigo-600">Home</a>
+                <a href="#products" class="text-gray-700 hover:text-indigo-600">Products</a>
+                <a href="#deals" class="text-gray-700 hover:text-indigo-600">Deals</a>
+                <a href="#" class="text-gray-700 hover:text-indigo-600">About</a>
+            </div>
+        </div>
+        
+        <!-- Search bar -->
+        <div id="search-bar" class="hidden container mx-auto px-4 py-3 bg-white border-t border-gray-200">
+            <div class="relative">
+                <input type="text" placeholder="Search products..." class="w-full border border-gray-300 rounded-md py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to Shoppa</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Discover amazing products at unbeatable prices. Quality you can trust, service you can rely on.</p>
+            <a href="#products" class="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-md hover:bg-gray-100 transition inline-block">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-center">Shop by Category</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="#" class="bg-gray-100 rounded-lg p-6 text-center hover:bg-indigo-50 transition group">
+                    <div class="bg-indigo-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-3 group-hover:bg-indigo-200 transition">
+                        <i class="fas fa-laptop text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold">Electronics</h3>
+                </a>
+                <a href="#" class="bg-gray-100 rounded-lg p-6 text-center hover:bg-indigo-50 transition group">
+                    <div class="bg-indigo-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-3 group-hover:bg-indigo-200 transition">
+                        <i class="fas fa-tshirt text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold">Fashion</h3>
+                </a>
+                <a href="#" class="bg-gray-100 rounded-lg p-6 text-center hover:bg-indigo-50 transition group">
+                    <div class="bg-indigo-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-3 group-hover:bg-indigo-200 transition">
+                        <i class="fas fa-home text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold">Home & Garden</h3>
+                </a>
+                <a href="#" class="bg-gray-100 rounded-lg p-6 text-center hover:bg-indigo-50 transition group">
+                    <div class="bg-indigo-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-3 group-hover:bg-indigo-200 transition">
+                        <i class="fas fa-gamepad text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold">Toys & Games</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Listings -->
+    <section id="products" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold">Featured Products</h2>
+                <div class="flex space-x-2">
+                    <button class="px-3 py-1 bg-white border border-gray-300 rounded-md hover:bg-gray-100">All</button>
+                    <button class="px-3 py-1 bg-white border border-gray-300 rounded-md hover:bg-gray-100">Popular</button>
+                    <button class="px-3 py-1 bg-white border border-gray-300 rounded-md hover:bg-gray-100">Newest</button>
+                </div>
+            </div>
+            
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Deals -->
+    <section id="deals" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold">Today's Deals</h2>
+                <a href="#" class="text-indigo-600 hover:underline">View All</a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-r from-red-500 to-orange-500 rounded-lg p-6 text-white relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 bg-white bg-opacity-20 w-32 h-32 rounded-full"></div>
+                    <div class="relative z-10">
+                        <span class="bg-white text-red-500 text-xs font-bold px-2 py-1 rounded-md">HOT DEAL</span>
+                        <h3 class="text-xl font-bold mt-3 mb-1">Summer Sale</h3>
+                        <p class="mb-4">Up to 50% off selected items</p>
+                        <a href="#" class="text-sm font-semibold underline">Shop Now</a>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg p-6 text-white relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 bg-white bg-opacity-20 w-32 h-32 rounded-full"></div>
+                    <div class="relative z-10">
+                        <span class="bg-white text-blue-500 text-xs font-bold px-2 py-1 rounded-md">LIMITED</span>
+                        <h3 class="text-xl font-bold mt-3 mb-1">New Arrivals</h3>
+                        <p class="mb-4">20% off for first-time buyers</p>
+                        <a href="#" class="text-sm font-semibold underline">Shop Now</a>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-green-500 to-teal-500 rounded-lg p-6 text-white relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 bg-white bg-opacity-20 w-32 h-32 rounded-full"></div>
+                    <div class="relative z-10">
+                        <span class="bg-white text-green-500 text-xs font-bold px-2 py-1 rounded-md">FLASH</span>
+                        <h3 class="text-xl font-bold mt-3 mb-1">Weekend Special</h3>
+                        <p class="mb-4">Buy 1 Get 1 Free on selected items</p>
+                        <a href="#" class="text-sm font-semibold underline">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Products -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-center">Recommended For You</h2>
+            
+            <div id="recommended-products" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Recommended products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-12 bg-indigo-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-2">Subscribe to Our Newsletter</h2>
+            <p class="mb-6 max-w-2xl mx-auto">Get the latest updates on new products and upcoming sales</p>
+            <div class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" class="flex-grow py-3 px-4 rounded-l-md focus:outline-none text-gray-900">
+                <button class="bg-indigo-800 hover:bg-indigo-900 py-3 px-6 rounded-r-md transition">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Shoppa</h3>
+                    <p class="text-gray-400">Your one-stop shop for all your needs. Quality products at affordable prices.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white">Products</a></li>
+                        <li><a href="#deals" class="text-gray-400 hover:text-white">Deals</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">My Account</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Order Tracking</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Wishlist</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Returns & Refunds</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>123 Main Street, City, Country</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2"></i>
+                            <span>+1 234 567 890</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <span>info@shoppa.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Shoppa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Quick View Modal -->
+    <div id="quick-view-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-xl font-bold">Product Details</h3>
+                <button id="close-quick-view" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6 grid md:grid-cols-2 gap-8">
+                <div class="blur-load bg-gray-100 rounded-lg overflow-hidden" id="quick-view-image-container">
+                    <img src="" alt="" class="w-full h-auto object-cover" id="quick-view-image">
+                </div>
+                <div>
+                    <h2 id="quick-view-title" class="text-2xl font-bold mb-2"></h2>
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-gray-500">(42 reviews)</span>
+                    </div>
+                    <div class="mb-4">
+                        <span id="quick-view-price" class="text-2xl font-bold text-indigo-600"></span>
+                        <span id="quick-view-old-price" class="text-gray-400 line-through ml-2"></span>
+                        <span id="quick-view-discount" class="bg-red-100 text-red-600 text-sm font-semibold ml-2 px-2 py-1 rounded"></span>
+                    </div>
+                    <p id="quick-view-description" class="text-gray-700 mb-6"></p>
+                    <div class="flex items-center mb-6">
+                        <span class="mr-4">Quantity:</span>
+                        <div class="flex border border-gray-300 rounded-md">
+                            <button class="px-3 py-1 bg-gray-100 hover:bg-gray-200" id="decrease-qty">-</button>
+                            <input type="number" value="1" min="1" class="w-12 text-center border-x border-gray-300" id="product-qty">
+                            <button class="px-3 py-1 bg-gray-100 hover:bg-gray-200" id="increase-qty">+</button>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4">
+                        <button class="flex-grow bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700 transition" id="add-to-cart-btn">
+                            Add to Cart
+                        </button>
+                        <button class="w-12 flex items-center justify-center border border-gray-300 rounded-md hover:bg-gray-100">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <div class="flex items-start mb-2">
+                            <i class="fas fa-truck mt-1 mr-2 text-gray-500"></i>
+                            <span class="text-gray-700">Free shipping on orders over $50</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-undo mt-1 mr-2 text-gray-500"></i>
+                            <span class="text-gray-700">30-day return policy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-md w-full">
+            <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-xl font-bold">Checkout</h3>
+                <button id="close-checkout" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <div class="mb-6">
+                    <h4 class="font-semibold mb-2">Order Summary</h4>
+                    <div id="checkout-items" class="max-h-40 overflow-y-auto mb-4 border-b border-gray-200 pb-4">
+                        <!-- Cart items will be displayed here -->
+                    </div>
+                    <div class="flex justify-between font-semibold mb-2">
+                        <span>Subtotal:</span>
+                        <span id="checkout-subtotal">$0.00</span>
+                    </div>
+                    <div class="flex justify-between font-semibold mb-2">
+                        <span>Shipping:</span>
+                        <span id="checkout-shipping">$5.99</span>
+                    </div>
+                    <div class="flex justify-between font-semibold text-lg mt-4">
+                        <span>Total:</span>
+                        <span id="checkout-total">$0.00</span>
+                    </div>
+                </div>
+                
+                <form id="checkout-form" class="space-y-4">
+                    <div>
+                        <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" id="full-name" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="email" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                    </div>
+                    <div>
+                        <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                        <input type="text" id="address" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="city" class="block text-sm font-medium text-gray-700 mb-1">City</label>
+                            <input type="text" id="city" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                        </div>
+                        <div>
+                            <label for="zip" class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
+                            <input type="text" id="zip" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="payment" class="block text-sm font-medium text-gray-700 mb-1">Payment Method</label>
+                        <select id="payment" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                            <option value="">Select payment method</option>
+                            <option value="credit">Credit Card</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="bank">Bank Transfer</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700 transition">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div id="confirmation-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-md w-full text-center p-8">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-check text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Order Confirmed!</h3>
+            <p class="text-gray-600 mb-6">Thank you for your purchase. Your order has been placed successfully.</p>
+            <button id="close-confirmation" class="bg-indigo-600 text-white py-2 px-6 rounded-md hover:bg-indigo-700 transition">Continue Shopping</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

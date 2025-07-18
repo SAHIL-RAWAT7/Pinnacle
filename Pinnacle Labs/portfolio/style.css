@@ -1,0 +1,117 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #f9fafb;
+    color: #1f2937;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+.dark body {
+    background-color: #111827;
+    color: #f9fafb;
+}
+
+.dark nav {
+    background-color: #1f2937 !important;
+}
+
+.dark footer {
+    background-color: #0f172a;
+}
+
+.dark .bg-white {
+    background-color: #1f2937 !important;
+}
+
+.dark .text-gray-700,
+.dark .text-gray-600 {
+    color: #d1d5db !important;
+}
+
+.dark .text-gray-800 {
+    color: #f3f4f6 !important;
+}
+
+.dark .text-gray-500 {
+    color: #9ca3af !important;
+}
+
+.dark .shadow-lg,
+.dark .shadow-md {
+    box-shadow: none !important;
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(90deg, #3b82f6, #10b981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Hover effects */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.skill-item {
+    transition: transform 0.3s ease;
+}
+.skill-item:hover {
+    transform: scale(1.05);
+}
+
+/* Navigation underline */
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #3b82f6;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.animate-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Dark Mode Toggle Button */
+#dark-mode-toggle {
+    cursor: pointer;
+    font-size: 18px;
+    background: #3b82f6;
+    color: white;
+    border-radius: 50%;
+    padding: 7px;
+    margin-left:30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#dark-mode-toggle:hover {
+    background: #2563eb;
+}
